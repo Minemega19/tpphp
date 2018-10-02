@@ -1,6 +1,7 @@
 <?php
   //require_once("include/config.inc.php");
   //require_once("include/connect.inc.php");
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -10,17 +11,18 @@
 </head>
     <h1>Modification &/ou du mail </h1>
     <?php
-     $getOldPage = $_POST["PrenomModif"];
+
+     $nouvPrenom = $_POST["PrenomModif"];
+     $nouvMail = $_POST["MailModif"];
+     $val = $_SESSION['IDCLI'];
      $db = mysqli_connect ("localhost","root","");
         mysqli_select_db($db,"client"); 
-     $sql = "SELECT PRENOM_CLIENT, MAIL_CLIENT FROM CLIENT WHERE NO_CLIENT = $getOldPage";
+     $sql = "UPDATE CLIENT SET MAIL_CLIENT = '$nouvMail', PRENOM_CLIENT = '$nouvPrenom' WHERE NO_CLIENT = $val";
      $result = mysqli_query($db,$sql);
-     $ligne = mysqli_fetch_array($result);
-     $nouvPrenom = $ligne["PRENOM_CLIENT"];
-     $nouvNom = $ligne["NOM_CLIENT"];
-     $modif = "UPDATE CLIENT SET NOM_CLIENT = $nouvNom, PRENOM_CLIENT = $nouvPrenom, WHERE id = $getOldPage";
     ?>
     
-    <input type="submit" value="BACK" href="ex2p5.php">
+    <form action="ex2p7.php" method="post">
+        <button type="submit" formaction="ex2p7.php">Allez à la page de suppression</button>
+    </form>
 
 <body>
