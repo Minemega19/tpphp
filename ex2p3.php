@@ -39,5 +39,17 @@
             <td>OUI</td> </tr>
             <?php
           }
+           if($ligne['NOM_CLIENT'] == "Peedoo"){
+            ?>
+            <td>Validé</td> </tr>
+            <?php
+          }else{
+            ?>
+            <td>nul</td> </tr>
+            <?php
+          }
       }
     ?>
+<form action="ex2p3.php" method="get">
+        <button type="submit" formaction="ex2p4.php">Modifier un client</button>
+</form>
