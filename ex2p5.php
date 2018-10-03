@@ -22,6 +22,7 @@ session_start();
 <form method = "post" action="ex2p6.php">
     Prenom : <input type="text" name="PrenomModif" value="<?php echo $ligne["PRENOM_CLIENT"] ?>"><br>
     Mail : <input type="text" name="MailModif" value="<?php echo $ligne["MAIL_CLIENT"] ?>"><br>
+
     <input type="submit" value="Ok">
     <input type="submit" value="Effacer">
 </form>
